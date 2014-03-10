@@ -1,0 +1,41 @@
+Evan Ng, 17020074
+Akiff Manji,
+
+1)
+A skiplist with p = 1/2, that contains n elements will give us:
+
+L = log (based 1/p) N elements.
+
+Since p = 1/2, (1/(1/2))is 2.
+
+L = log (based 2) N elements.
+Expected number of levels is Lg(n).
+
+2)
+The levels of the nodes in a skip list is not uniformly distributed between 1 and its height H.
+The probability that a node will have height h = 1/H is:
+
+Depending on what H is.
+
+From level 1, the chance a node gets promoted is 1/2.
+From level 2, the chance a node gets promoted again ist a 1/2.
+From level 3, the chance a node gets promoted again ist a 1/2.
+
+So for level 2:  the chance is 1/2.
+For level 3:     the chance is 1/4.
+For level 4:     the chance is 1/8.
+
+The probability is 1 / (2^h-1), provided that the levels start counting at 1, where h is the desired height.
+
+3)
+The points that will be followed for the Search(S, 50) call is:
+
+Head pointer at level 4 checks if the pointer's next at level 4 is null or equal to 50.  It is null. Go down a level.
+Head pointer at level 3 checks if the pointer's next at level 3 is null or equal to 50.  19 is < 50.  Keep going.
+19 at level 3 checks if the pointer's next at level 3 is null or equal to 50.  32 is < 50.  Keep going.
+32 at level 3 checks if the pointer's next at level 3 is null or equal to 50.  71 is > 50.  Go down a level.
+32 at level 2 checks if the pointer's next at level 2 is null or equal to 50.  33 is < 50.  Keep going.
+33 at level 2 checks if the pointer's next at level 2 is null or equal to 50.  54 is > 50.  Go down a level.
+33 at level 1 checks if the pointer's next at level 1 is null or equal to 50.  36 is < 50.  Keep going.
+36 at level 1 checks if the pointer's next at level 1 is null or equal to 50.  40 is < 50.  Keep going.
+40 at level 1 checks if the pointer's next at level 1 is null or equal to 50.  It is equal to 50.  We found it.
